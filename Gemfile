@@ -14,7 +14,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'quiet_assets'
 gem 'pry-rails'
-gem 'rack-cors'
+gem 'rack-cors', :require => 'rack/cors'
 
 
 group :development, :test do

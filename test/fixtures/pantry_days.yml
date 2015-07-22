@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date_time: 2015-07-21 16:07:27
+  num_volunteers: 1
+  max_num_clients: 1
+
+two:
+  date_time: 2015-07-21 16:07:27
+  num_volunteers: 1
+  max_num_clients: 1
