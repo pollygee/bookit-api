@@ -1,3 +1,21 @@
+module Devise
+  module Strategies
+    class AuthWithTokenFromHeader < Base
+      def valid?
+        request.headers["Authorization"].present?
+      end
+
+      def authenticate!
+        if request.headers["Authorization"] == "VALUE_THAT_SHOULDNT_BE_HARDCODED_BUT_IS_RIGHT_NOW"
+          similarly_hardcoded_user = User.find 1
+          success! similarly_hardcoded_user
+        else
+          fail! "That wasn't the hardcoded token"
+        end
+      end
+    end
+  end
+end
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
@@ -262,4 +280,9 @@ Devise.setup do |config|
   # When using OmniAuth, Devise cannot automatically set OmniAuth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
+
+  config.warden do |manager|
+    manager.strategies.add(:auth_from_token, Devise::Strategies::AuthWithTokenFromHeader)
+    manager.default_strategies(scope: :user).unshift :auth_from_token
+  end
 end
