@@ -20,11 +20,12 @@ gem 'rack-cors', :require => 'rack/cors'
 group :development, :test do
   gem 'spring'
   gem 'faker'
+  gem 'factory_girl'
+  gem 'did_you_mean'
 end
 
 group :development do
   gem 'better_errors'
-  gem 'did_you_mean'
   gem 'binding_of_caller'
 end
 
