@@ -1,0 +1,1 @@
+json.client @client, :first_name, :last_name, :address, :zip, :display_phone, :family_size, :account_number, :email
