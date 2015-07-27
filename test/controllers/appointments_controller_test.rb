@@ -3,7 +3,7 @@ require 'test_helper'
 class AppointmentsControllerTest < ActionController::TestCase
   def test_appointments_can_be_created
     u = create(:user)
-    login u
+    sign_in u
     assert_equal 0, Appointment.count
     post :create, appointment: { pantry_day_id: 5, client_id: 6 }
     assert_equal "200", response.code
@@ -13,7 +13,7 @@ class AppointmentsControllerTest < ActionController::TestCase
 
   def test_appointment_can_be_updated
     u = create(:user)
-    login u
+    sign_in u
     Appointment.create!(id: 111, pantry_day_id: 3, client_id: 4)
     assert_equal nil, Appointment.last.showed
     patch :update, id: 111, appointment: { showed: "true"}
