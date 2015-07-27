@@ -2,8 +2,7 @@ require 'test_helper'
 
 class AppointmentsControllerTest < ActionController::TestCase
   def test_appointments_can_be_created
-    u = User.create!(email: "bob@example.com", password: "password")
-    # u = create(:user)
+    u = create(:user)
     login u
     assert_equal 0, Appointment.count
     post :create, appointment: { pantry_day_id: 5, client_id: 6 }
@@ -13,7 +12,7 @@ class AppointmentsControllerTest < ActionController::TestCase
   end
 
   def test_appointment_can_be_updated
-    u = User.create!(email: "bob@example.com", password: "password")
+    u = create(:user)
     login u
     Appointment.create!(id: 111, pantry_day_id: 3, client_id: 4)
     assert_equal nil, Appointment.last.showed

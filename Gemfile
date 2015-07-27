@@ -20,7 +20,7 @@ gem 'rack-cors', :require => 'rack/cors'
 group :development, :test do
   gem 'spring'
   gem 'faker'
-  gem 'factory_girl'
+  gem 'factory_girl_rails'
   gem 'did_you_mean'
 end
 

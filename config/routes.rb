@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :clients
-  resources :voicemails
+  resources :clients 
+  resources :voicemails do
+    resources :notes
+  end
   resources :pantry_days 
   resources :appointments
   root to: 'application#home'

@@ -2,6 +2,8 @@ require 'test_helper'
 
 class VoicemailsControllerTest < ActionController::TestCase
   def test_voicemail_can_be_created
+    u = create(:user)
+    sign_in u
     assert_equal 0, Voicemail.count
     post :create, voicemail: { client_id: 6 }
     assert_equal "200", response.code
@@ -10,6 +12,8 @@ class VoicemailsControllerTest < ActionController::TestCase
   end
 
   def test_appointment_can_be_updated
+    u = create(:user)
+    sign_in u
     Voicemail.create!(id: 12, client_id: 4)
     assert_equal false, Voicemail.find(12).resolved
     patch :update, id: 12, voicemail: { resolved: "true", out_of_area: "true"}
