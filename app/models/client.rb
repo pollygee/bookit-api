@@ -6,7 +6,6 @@ class Client < ActiveRecord::Base
 
   def next_allowable_appointment 
     if pantry_days.any?
-      #pantry_days.maximum(:date_time) + 28.days
       pantry_days.to_a.max_by(&:date_time).date_time + 28.days
     else
       Time.now
