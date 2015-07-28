@@ -19,6 +19,11 @@ class ClientsController < ApplicationController
     render json: client
   end
 
+  def search
+    clients = Client.search(params[:q])
+    render json: clients
+  end
+
 private
 
   def client_params

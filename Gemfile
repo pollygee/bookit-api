@@ -15,6 +15,7 @@ gem 'quiet_assets'
 gem 'pry-rails'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'elasticsearch-rails'
+gem 'elasticsearch-model'
 
 group :development, :test do
   gem 'spring'

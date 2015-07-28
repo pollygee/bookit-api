@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :clients 
+  resources :clients do
+    collection {get 'search'}
+  end
   resources :voicemails do
     resources :notes
   end
