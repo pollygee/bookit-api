@@ -20,7 +20,10 @@ class ClientsController < ApplicationController
   end
 
   def search
-    clients = Client.search(params[:q])
+    search_terms = params[:q]
+    split_search = search_terms.split(" ")
+    clients = Client.where(first_name: split_search[0], last_name: split_search[1], display_phone: split_search[2])
+    # clients = Client.search(params[:q])
     render json: clients
   end
 
