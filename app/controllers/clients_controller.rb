@@ -27,6 +27,7 @@ class ClientsController < ApplicationController
 private
 
   def client_params
-    params.require(:client).permit(:id, :first_name, :last_name, :address, :zip, :display_phone, :data_phone, :county, :family_size, :account_number, :email)
+    body_data = JSON.parse(request.body.read)
+    ActionController::Parameters.new(body_data).require(:client).permit(:id, :first_name, :last_name, :address, :zip, :display_phone, :data_phone, :county, :family_size, :account_number, :email)
   end
 end

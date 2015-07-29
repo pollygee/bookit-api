@@ -16,6 +16,7 @@ class VoicemailsController < ApplicationController
 private
 
   def voicemail_params
-    params.require(:voicemail).permit(:id, :client_id, :resolved, :out_of_area, :above_income, :needs_other, :no_docs, :time_with_call)
+    body_data = JSON.parse(request.body.read)
+    ActionController::Parameters.new(body_data)require(:voicemail).permit(:id, :client_id, :resolved, :out_of_area, :above_income, :needs_other, :no_docs, :time_with_call)
   end
 end
