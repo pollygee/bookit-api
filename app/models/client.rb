@@ -21,7 +21,7 @@ class Client < ActiveRecord::Base
     {
     query: {
       fuzzy_like_this: {
-          fields: ["name.first", "name.last"],
+          fields: ["first_name", "last_name"],
           like_text: query,
           max_query_terms: 12
         }
