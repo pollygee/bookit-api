@@ -9,14 +9,17 @@ class NotesController < ApplicationController
   end
 
   def update
+    data = JSON.parse(request.body.read)
     note = Note.find(params[:id])
-    note.update!(note_params)
+    note.update!(data)
     render json: note
   end
 
 private
 
   def note_params
-    params.require(:note).permit(:info)
+    #params.require(:note).permit(:info)
+    body_data = JSON.parse(request.body.read)
+    ActionController::Parameters.new(body_data).require(:note).permit(:info)
   end
 end
