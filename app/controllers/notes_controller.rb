@@ -17,6 +17,6 @@ class NotesController < ApplicationController
 private
 
   def note_params
-    params.require(:note).permit(:voicemail_id, :info)
+    params.require(:note).permit(:info)
   end
 end
