@@ -24,4 +24,8 @@ class ActionController::TestCase
     sign_in user
     user
   end
+
+  def set_body data
+    @request.env["RAW_POST_DATA"] = data.to_json
+  end
 end

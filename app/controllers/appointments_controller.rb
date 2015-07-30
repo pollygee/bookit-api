@@ -18,6 +18,6 @@ private
 
   def appointment_params
     body_data = JSON.parse(request.body.read)
-    params.require(:appointment).permit(:id, :pantry_day_id, :client_id, :showed)
+    ActionController::Parameters.new(body_data).require(:appointment).permit(:id, :pantry_day_id, :client_id, :showed)
   end
 end

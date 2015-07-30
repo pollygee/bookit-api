@@ -6,6 +6,7 @@ class NotesControllerTest < ActionController::TestCase
     sign_in u
     assert_equal 0, Note.count
     Voicemail.create!(id: 12, client_id: 4)
+    
     post :create, voicemail_id: 12, note: {info: "Left Voicemail"}
     assert_equal "200", response.code
     assert_equal 12, JSON.parse(response.body)["voicemail_id"]
