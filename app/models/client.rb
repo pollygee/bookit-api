@@ -1,8 +1,8 @@
 require 'elasticsearch/model'
 
 class Client < ActiveRecord::Base
-  include Elasticsearch::Model
-  #include Elasticsearch::Model::Callbacks
+  # include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
   has_many :appointments
   has_many :pantry_days, through: :appointments
   has_many :voicemails
