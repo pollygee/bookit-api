@@ -1,7 +1,7 @@
 require 'elasticsearch/model'
 
 class Client < ActiveRecord::Base
-  # include Elasticsearch::Model
+  include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
   has_many :appointments
   has_many :pantry_days, through: :appointments
@@ -16,12 +16,12 @@ class Client < ActiveRecord::Base
     end
   end
 
-  def self.search(query)
+  def self.efind(query)
     __elasticsearch__.search(
     {
     query: {
       fuzzy_like_this: {
-          fields: ["first_name", "last_name"],
+          fields: ["first_name", "last_name", "display_phone"],
           like_text: query,
           max_query_terms: 12
         }
