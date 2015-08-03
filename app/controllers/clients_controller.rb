@@ -1,6 +1,6 @@
 class ClientsController < ApplicationController
   def index
-    @clients = Client.all.includes(:pantry_days)
+    @clients = Client.all.includes(:pantry_days).order(:last_name)
   end
 
   def show
