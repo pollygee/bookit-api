@@ -16,6 +16,7 @@ gem 'pry-rails'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'elasticsearch-rails'
 gem 'elasticsearch-model'
+gem 'sidekiq'
 
 group :development, :test do
   gem 'spring'
