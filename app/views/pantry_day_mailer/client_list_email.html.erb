@@ -4,13 +4,14 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Clients for <%=Date.today + 1%></h1>
+    <h1>Clients sheduled for food pickup for <%=Date.today + 1%></h1>
     <%@scheduled_clients.each do |client|%>
-      <p>Client Name: <%=client.first_name + client.last_name%><br>
-      Client Address: <%=client.address + client.zip%><br>
+      <p><b>Client Name: <%="#{client.first_name} #{client.last_name}"%></b><br>
+      Client Address: <%="#{client.address} #{client.zip}"%><br>
       Client Phone: <%=client.display_phone%><br>
       County: <%client.county%><br>
       Family Size: <%client.family_size%><br>
+      <hr>
       </p>
     <%end%>
   </body>
