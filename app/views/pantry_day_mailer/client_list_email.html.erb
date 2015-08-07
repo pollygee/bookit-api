@@ -5,18 +5,22 @@
   </head>
   <body>
     <h1>Clients scheduled for food pickup for <%=Date.today + 1%></h1>
-    <%@scheduled_clients.each do |client|%>
-      <p><b>Client Name: <%="#{client.first_name} #{client.last_name}"%></b><br>
-      Client Address: <%="#{client.address} #{client.zip}"%>
-      <br>
-      Client Phone: <%=client.display_phone%>
-      <br>
-      County: <%=client.county%>
-      <br>
-      Family Size: <%=client.family_size%>
-      <br>
-      </p>
-      <!-- <hr> -->
+    <% if @scheduled_clients %>
+      <%@scheduled_clients.each do |client|%>
+        <p><b>Client Name: <%="#{client.first_name} #{client.last_name}"%></b><br>
+        Client Address: <%="#{client.address} #{client.zip}"%>
+        <br>
+        Client Phone: <%=client.display_phone%>
+        <br>
+        County: <%=client.county%>
+        <br>
+        Family Size: <%=client.family_size%>
+        <br>
+        </p>
+        <hr>
+        <%end%>
+    <%else%>
+      <p>No clients have been scheduled</p>
     <%end%>
   </body>
 </html>
